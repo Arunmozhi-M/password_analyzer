@@ -63,11 +63,7 @@
     <input type="password" name="password" required>
     <button type="submit">Check Strength</button>
 </form>
-    <div class="strength-bar">
-        <div class="strength-fill"></div>
-    </div>
 
-    <h3>Strength:{{strength}}</h3>
     {% if strength == "Weak" %}
     <h3 style="color:red;">Strength: {{ strength }}</h3>
 {% elif strength == "Medium" %}
