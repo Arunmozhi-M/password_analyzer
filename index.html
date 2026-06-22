@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Strength Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 15px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .strength-bar {
+            width: 100%;
+            height: 12px;
+            background: #334155;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .strength-fill {
+            height: 100%;
+            width: 0%;
+            background: green;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🔐 Password Strength Checker</h1>
+
+   <form method="POST">
+    <input type="password" name="password" required>
+    <button type="submit">Check Strength</button>
+</form>
+    <div class="strength-bar">
+        <div class="strength-fill"></div>
+    </div>
+
+    <h3>Strength:{{strength}}</h3>
+    {% if strength == "Weak" %}
+    <h3 style="color:red;">Strength: {{ strength }}</h3>
+{% elif strength == "Medium" %}
+    <h3 style="color:orange;">Strength: {{ strength }}</h3>
+{% elif strength == "Strong" %}
+    <h3 style="color:green;">Strength: {{ strength }}</h3>
+{% endif %}
+
+    <ul style="text-align:left;">
+        <li>✔ At least 8 characters</li>
+        <li>✔ Uppercase letter</li>
+        <li>✔ Lowercase letter</li>
+        <li>✔ Number</li>
+        <li>✔ Special character</li>
+    </ul>
+</div>
+
+</body>
+</html>
